@@ -7,6 +7,7 @@
 body {
   font-family: "Open Sans Condensed", sans-serif;
   background-color: #23292c;
+  font-size: 18px;
 }
 
 header {
@@ -40,6 +41,7 @@ main {
   color: white;
   text-align: center;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 .comic-card h2 {
@@ -59,5 +61,14 @@ main {
 .row-title {
   font-weight: bold;
   color: #50B9F2;
+}
+
+.form_container {
+  color: white;
+}
+
+.form_container h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
 }
 
