@@ -4,6 +4,16 @@
 <div class="container form_container">
     <h2>Aggiungi un fumetto alla collezione</h2>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="{{ route('comics.store') }}" method="post">
         @csrf
         @method('POST')
@@ -19,7 +29,7 @@
         </div>
 
         <div class="form-group">
-            <label for="publisher">Tipo</label>
+            <label for="publisher">Publisher</label>
             <input type="text" class="form-control" name="publisher" id="publisher" value="{{ old('publisher') }}">
         </div>
 

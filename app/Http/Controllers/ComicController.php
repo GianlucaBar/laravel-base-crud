@@ -40,8 +40,27 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+
+        $request->validate([
+            'name' => 'required|min:2|max:100',
+            'publisher' => 'required|max:255',
+            'price' => 'required',
+            'vote' => 'required'
+        ]);
+        
+        $data = $request->all();
+        
+        $comicNew = new Comic;
+
+        $comicNew->fill($data);
+
+        $comicNew->save();
+
+        $comic = Comic::orderBy('id', 'desc')->first();
+
+        return redirect()->route('comics.show', $comic);
+
     }
 
     /**
