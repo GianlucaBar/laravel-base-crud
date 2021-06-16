@@ -32,27 +32,20 @@
             <a href="{{ route('comics.edit', $comic->id) }}">Modifica Fumetto</a>
         </div>
 
+        {{-- tasto elimina  --}}
         <div class="card-row">
-            <button id="toggle" class="btn btn-danger">Elimina</button>
+            <form action="{{ route('comics.destroy', [
+                'comic' => $comic->id
+            ]) }} " method="post">
+            
+            @csrf
+            @method('DELETE')
 
-            <div id="popup">
-
-                <div class="warning">Sei sicuro di voler eliminare l'elemento?</div>
-                <form action="{{ route('comics.destroy', [
-                        'comic' => $comic->id
-                    ]) }} " method="post">
-                    
-                    @csrf
-                    @method('DELETE')
-        
-                    <input type="submit" class="btn btn-danger" value="elimina">
-                </form>
-                <button id="toggle" class="btn btn-danger">NO</button>
-            </div>
+            <input type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger" value="elimina">
+            </form>
         </div>
     </div>   
     @endforeach
-
 </div>
 
 
