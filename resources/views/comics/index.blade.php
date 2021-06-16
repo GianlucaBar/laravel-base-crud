@@ -33,18 +33,26 @@
         </div>
 
         <div class="card-row">
-            <form action="{{ route('comics.destroy', [
-                'comic' => $comic->id
-            ]) }} " method="post">
-            
-            @csrf
-            @method('DELETE')
+            <button id="toggle" class="btn btn-danger">Elimina</button>
 
-            <input type="submit" class="btn btn-danger" value="elimina">
-            </form>
+            <div id="popup">
+
+                <div class="warning">Sei sicuro di voler eliminare l'elemento?</div>
+                <form action="{{ route('comics.destroy', [
+                        'comic' => $comic->id
+                    ]) }} " method="post">
+                    
+                    @csrf
+                    @method('DELETE')
+        
+                    <input type="submit" class="btn btn-danger" value="elimina">
+                </form>
+                <button id="toggle" class="btn btn-danger">NO</button>
+            </div>
         </div>
     </div>   
     @endforeach
+
 </div>
 
 
