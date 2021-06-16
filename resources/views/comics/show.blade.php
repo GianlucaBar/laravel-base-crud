@@ -54,6 +54,8 @@
         <div class="card-row">
             <a href="{{ route('comics.edit', $comic->id) }}">Modifica Fumetto</a>
         </div>
+
+        
     </div>
 
 </div>

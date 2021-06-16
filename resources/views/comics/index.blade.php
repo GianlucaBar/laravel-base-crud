@@ -22,12 +22,26 @@
             <div>{{ $comic->description }} </div>
         </div>
 
+        {{-- tasto detagli  --}}
         <div class="card-row">
             <a href="{{ route('comics.show', $comic->id) }}">Vedi dettaglio fumetto</a>
         </div>
 
+        {{-- tasto modifica  --}}
         <div class="card-row">
             <a href="{{ route('comics.edit', $comic->id) }}">Modifica Fumetto</a>
+        </div>
+
+        <div class="card-row">
+            <form action="{{ route('comics.destroy', [
+                'comic' => $comic->id
+            ]) }} " method="post">
+            
+            @csrf
+            @method('DELETE')
+
+            <input type="submit" class="btn btn-danger" value="elimina">
+            </form>
         </div>
     </div>   
     @endforeach
